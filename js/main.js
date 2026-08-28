@@ -60,7 +60,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Form Submit Handler (AJAX désactivé temporairement pour l'activation)
+    // 4. Politique de confidentialité — section repliée, révélée par le bouton du footer
+    const privacySection = document.getElementById('privacy');
+    const privacyToggles = document.querySelectorAll('[data-privacy-toggle]');
+
+    if (privacySection && privacyToggles.length) {
+        const scrollToEl = (el, extra = 0) => {
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight - extra;
+            window.scrollTo({ top, behavior: 'smooth' });
+        };
+
+        privacyToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                privacySection.classList.add('is-open');
+                // laisse le temps au navigateur d'afficher la section avant de calculer la position
+                requestAnimationFrame(() => scrollToEl(privacySection));
+            });
+        });
+
+        const closeBtn = privacySection.querySelector('[data-privacy-close]');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                privacySection.classList.remove('is-open');
+                const contact = document.getElementById('contact');
+                if (contact) scrollToEl(contact);
+            });
+        }
+    }
+
+    // 5. Form Submit Handler (AJAX désactivé temporairement pour l'activation)
     const form = document.getElementById('contactForm');
     /*
     if (form) {
