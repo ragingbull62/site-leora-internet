@@ -1020,7 +1020,7 @@ footer {
 .seo-faq {
     list-style: none;
     max-width: 900px;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .seo-faq li {
@@ -1031,6 +1031,32 @@ footer {
     margin-bottom: 1rem;
     box-shadow: var(--shadow-sm);
     font-size: 0.98rem;
+}
+
+.seo-faq-item {
+    background: var(--white);
+    border-left: 4px solid var(--bordeaux);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.seo-faq-item h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.seo-faq-item p {
+    margin: 0;
+    font-size: 0.97rem;
+    color: var(--grey-dark);
+}
+
+.seo-phase p {
+    font-size: 0.95rem;
+    color: var(--grey-dark);
+    margin-bottom: 0.9rem;
 }
 
 .seo-callout {
